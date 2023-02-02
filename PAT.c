@@ -1,16 +1,29 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
 
+int CountDigit( int number, int digit );
+    
 int main()
 {
-    printf("HOLLE WORLD!\n");
-    system("pause");
-    printf("开始\n");
+    int number, digit;
 
-    int a[4]={0,2,3,4};
-    for(int i=0;i<4;i++)
-        printf("%d\n",a[i]);
-        system("pause");//test git
-
+    scanf("%d %d", &number, &digit);
+    printf("Number of digit %d in %d: %d\n", digit, number, CountDigit(number, digit));
+    
     return 0;
+}
+
+/* 你的代码将被嵌在这里 */
+int CountDigit(int number, int digit)
+{
+    if(number == 0)
+        return digit==0?1:0;
+    
+    int record=0;
+    while(number!=0)
+    {
+        if(number%10==digit)
+            record++;
+        number/=10;
+    }
+    return record;
 }
